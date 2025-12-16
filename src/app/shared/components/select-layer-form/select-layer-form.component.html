@@ -1,3 +1,24 @@
 <div class="select-layer-form-container">
-    
+    <div class="preview-container">
+        <img [src]="preview" alt="Preview layer rendering">
+    </div>
+    <div class="layer-form">
+        @for (key of keys; track $index; let i = $index) {
+            @if (i) {
+                <div class="layer-form-group">
+                    <div class="layer-group-title">{{ layer.layerGroups[key].name }}</div>
+                    <div class="layer-group-items">
+                        @for (layerItem of layer.layerGroups[key].group.layers; track trackLayerFn(layerItem)) {
+                            <img
+                                [src]="layerItem.img"
+                                [alt]="layer.layerGroups[key].name"
+                                [class.selected]="layerItem.id === getSelectedLayer(key)"
+                                (click)="selectLayer(key, layerItem)"
+                            >
+                        }
+                    </div>
+                </div>
+            }
+        }
+    </div>
 </div>

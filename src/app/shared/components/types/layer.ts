@@ -15,6 +15,7 @@ export type LayerGroup = {
 export type LayerGroups = {
     [key: string]: {
         id: number;
+        name: string;
         group: LayerGroup
     }
 }

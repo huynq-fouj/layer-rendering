@@ -6,6 +6,7 @@ export const LAYER: LayerFormType = {
     layerGroups: {
         body: {
             id: 1,
+            name: "Body",
             group: {
                 layers: [{
                     id: 1,
@@ -20,6 +21,7 @@ export const LAYER: LayerFormType = {
         },
         face: {
             id: 2,
+            name: "Faces",
             group: {
                 layers: [
                     {
@@ -40,6 +42,7 @@ export const LAYER: LayerFormType = {
         },
         hair: {
             id: 3,
+            name: "Hairs",
             group: {
                 layers: [
                     {
@@ -76,6 +79,7 @@ export const LAYER: LayerFormType = {
         },
         scrub: {
             id: 4,
+            name: "Scrubs",
             group: {
                 layers: [
                     {
@@ -112,6 +116,7 @@ export const LAYER: LayerFormType = {
         },
         tShirt: {
             id: 5,
+            name: "T-Shirt",
             group: {
                 layers: [
                     {
@@ -136,6 +141,7 @@ export const LAYER: LayerFormType = {
         },
         blouse: {
             id: 6,
+            name: "Blouse",
             group: {
                 layers: [
                     {
@@ -152,6 +158,7 @@ export const LAYER: LayerFormType = {
         },
         shoes: {
             id: 7,
+            name: "Shoes",
             group: {
                 layers: [
                     {
