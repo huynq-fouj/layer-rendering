@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { SelectLayerFormComponent } from './shared/components/select-layer-form/select-layer-form.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [SelectLayerFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
