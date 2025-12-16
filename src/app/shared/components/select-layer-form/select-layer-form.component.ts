@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { LAYER } from '../../constants/layers';
-import { LayerItem } from '../types/layer';
+import { LayerItem } from '../../types/layer';
+import { LayerRenderService } from '../../services/layer-render.service';
 
 @Component({
   selector: 'app-select-layer-form',
@@ -14,6 +15,7 @@ export class SelectLayerFormComponent implements OnInit {
   readonly keys = Object.keys(this.layer.layerGroups);
   layerSelected = new Map<string, {id: number, img: string}>();
   preview: string = '';
+  private lrService = inject(LayerRenderService);
 
   ngOnInit(): void {
     this.keys.forEach(key => {
@@ -44,6 +46,7 @@ export class SelectLayerFormComponent implements OnInit {
   }
 
   updatePreview() {
-    this.preview = 'assets/images/body/female-body.png'
+    this.preview = 'assets/images/body/female-body.png';
+    this.lrService.getPreview(this.layer, this.layerSelected);
   }
 }

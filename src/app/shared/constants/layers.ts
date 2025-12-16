@@ -1,4 +1,4 @@
-import { LayerFormType } from "../components/types/layer";
+import { LayerFormType } from "../types/layer";
 
 export const LAYER: LayerFormType = {
     width: 800,
