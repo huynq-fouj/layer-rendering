@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { LAYER } from '../../constants/layers';
-import { LayerItem } from '../../types/layer';
+import { LayerItem, LayerSelectedItem } from '../../types/layer';
 import { LayerRenderService } from '../../services/layer-render.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { LayerRenderService } from '../../services/layer-render.service';
 export class SelectLayerFormComponent implements OnInit {
   readonly layer = LAYER;
   readonly keys = Object.keys(this.layer.layerGroups);
-  layerSelected = new Map<string, {id: number, img: string}>();
+  layerSelected = new Map<string, LayerSelectedItem>();
   preview: string = '';
   private lrService = inject(LayerRenderService);
 
@@ -21,7 +21,8 @@ export class SelectLayerFormComponent implements OnInit {
     this.keys.forEach(key => {
       this.layerSelected.set(key, {
         id: this.layer.layerGroups[key].group.layers[0].id,
-        img: this.layer.layerGroups[key].group.layers[0].img
+        img: this.layer.layerGroups[key].group.layers[0].img,
+        options: { ...this.layer.layerGroups[key].group.options }
       })
     });
 
@@ -39,14 +40,20 @@ export class SelectLayerFormComponent implements OnInit {
   selectLayer(key: string, layer: LayerItem) {
     this.layerSelected.set(key, {
       id: layer.id,
-      img: layer.img
+      img: layer.img,
+      options: { ...this.layer.layerGroups[key].group.options }
     });
 
     this.updatePreview();
   }
 
   updatePreview() {
-    this.preview = 'assets/images/body/female-body.png';
-    this.lrService.getPreview(this.layer, this.layerSelected);
+    this.lrService.getPreview(
+      { 
+        width: this.layer.width,
+        height: this.layer.height
+      },
+      this.layerSelected
+    ).then(preview => this.preview = preview);
   }
 }

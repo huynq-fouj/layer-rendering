@@ -3,13 +3,15 @@ export type LayerItem = {
     img: string;
 }
 
+export type LayerOptions = {
+    x: number;
+    y: number;
+    scale: number;
+}
+
 export type LayerGroup = {
     layers: LayerItem[];
-    options: {
-        x: number;
-        y: number;
-        scale: number;
-    }
+    options: LayerOptions;
 }
 
 export type LayerGroups = {
@@ -24,4 +26,10 @@ export type LayerFormType = {
     width: number;
     height: number;
     layerGroups: LayerGroups;
+}
+
+export type LayerSelectedItem = {
+    id: number;
+    img: string;
+    options: LayerOptions;
 }
