@@ -7,6 +7,8 @@ export type LayerOptions = {
     x: number;
     y: number;
     scale: number;
+    duplicate?: boolean;
+    gap?: number;
 }
 
 export type LayerGroup = {
