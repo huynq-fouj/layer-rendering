@@ -23,29 +23,37 @@ export class LayerRenderService {
   ): Promise<string> {
     // Khởi tạo canvas, context
     const canvas = document.createElement('canvas');
-    canvas.width = canvasOptions.width;
-    canvas.height = canvasOptions.height;
+    const dpr = window.devicePixelRatio || 1;
+
+    canvas.width = canvasOptions.width * dpr;
+    canvas.height = canvasOptions.height * dpr;
+    canvas.style.width = `${canvasOptions.width}px`;
+    canvas.style.height = `${canvasOptions.height}px`;
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      throw new Error('Cannot get canvas context');
-    }
+    if (!ctx) throw new Error('Cannot get canvas context');
+
+    ctx.scale(dpr, dpr);
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Hàm load image
-    const loadImage = (src: string): Promise<HTMLImageElement> =>
-      new Promise((resolve, reject) => {
-        const img = new Image();
-        img.crossOrigin = 'anonymous';
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-        img.src = src;
-    });
+    const loadImage = async (src: string): Promise<ImageBitmap | null> => {
+      if (!src) return null;
+      const res = await fetch(src);
+      const blob = await res.blob();
+
+      return await createImageBitmap(blob, {
+        imageOrientation: 'none',
+        premultiplyAlpha: 'premultiply',
+        resizeQuality: 'high'
+      });
+    };
 
     // Lặp qua layer trong map
     for (const [, layer] of layerSelected) {
       const img = await loadImage(layer.img);
+      if (!img) continue;
       const { x, y, scale, duplicate, gap } = layer.options;
 
       const drawWidth = img.width * scale;

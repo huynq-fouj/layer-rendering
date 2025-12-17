@@ -52,6 +52,8 @@
 
 .select-layer-form-container .layer-form .layer-form-group .layer-group-items img {
     width: max(100px, 10%);
+    aspect-ratio: 1 / 1;
+    height: auto;
     cursor: pointer;
     border: 1px solid #666;
     box-sizing: border-box;

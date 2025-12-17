@@ -49,10 +49,10 @@ export const LAYER: LayerFormType = {
                         id: 1,
                         img: 'assets/images/hairs/hair1.webp'
                     },
-                    {
-                        id: 2,
-                        img: 'assets/images/hairs/hair2.webp'
-                    },
+                    // {
+                    //     id: 2,
+                    //     img: 'assets/images/hairs/hair2.webp'
+                    // },
                     {
                         id: 3,
                         img: 'assets/images/hairs/hair3.webp'
@@ -61,13 +61,17 @@ export const LAYER: LayerFormType = {
                         id: 4,
                         img: 'assets/images/hairs/hair4.webp'
                     },
+                    // {
+                    //     id: 5,
+                    //     img: 'assets/images/hairs/hair5.webp'
+                    // },
+                    // {
+                    //     id: 6,
+                    //     img: 'assets/images/hairs/hair6.webp'
+                    // },
                     {
-                        id: 5,
-                        img: 'assets/images/hairs/hair5.webp'
-                    },
-                    {
-                        id: 6,
-                        img: 'assets/images/hairs/hair6.webp'
+                        id: 7,
+                        img: '',
                     },
                 ],
                 options: {
@@ -82,18 +86,18 @@ export const LAYER: LayerFormType = {
             name: "Scrubs",
             group: {
                 layers: [
-                    {
-                        id: 1,
-                        img: 'assets/images/scrubs/scrub1.webp',
-                    },
-                    {
-                        id: 2,
-                        img: 'assets/images/scrubs/scrub2.webp',
-                    },
-                    {
-                        id: 3,
-                        img: 'assets/images/scrubs/scrub3.webp',
-                    },
+                    // {
+                    //     id: 1,
+                    //     img: 'assets/images/scrubs/scrub1.webp',
+                    // },
+                    // {
+                    //     id: 2,
+                    //     img: 'assets/images/scrubs/scrub2.webp',
+                    // },
+                    // {
+                    //     id: 3,
+                    //     img: 'assets/images/scrubs/scrub3.webp',
+                    // },
                     {
                         id: 4,
                         img: 'assets/images/scrubs/scrub4.webp',
@@ -106,11 +110,15 @@ export const LAYER: LayerFormType = {
                         id: 6,
                         img: 'assets/images/scrubs/scrub6.webp',
                     },
+                    {
+                        id: 7,
+                        img: '',
+                    },
                 ],
                 options: {
-                    x: 0,
-                    y: 0,
-                    scale: 1
+                    x: 220,
+                    y: 328,
+                    scale: 3.49,
                 }
             }
         },
@@ -131,11 +139,15 @@ export const LAYER: LayerFormType = {
                         id: 3,
                         img: 'assets/images/t-shirts/t-shirt3.webp',
                     },
+                    {
+                        id: 7,
+                        img: '',
+                    },
                 ],
                 options: {
-                    x: 0,
-                    y: 0,
-                    scale: 1
+                    x: 208,
+                    y: 316,
+                    scale: 2.7,
                 }
             }
         },
@@ -147,12 +159,16 @@ export const LAYER: LayerFormType = {
                     {
                         id: 1,
                         img: 'assets/images/blouses/blouse1.webp'
-                    }
+                    },
+                    {
+                        id: 7,
+                        img: '',
+                    },
                 ],
                 options: {
-                    x: 0,
-                    y: 0,
-                    scale: 1,
+                    x: 208,
+                    y: 316,
+                    scale: 3.6,
                 }
             }
         },

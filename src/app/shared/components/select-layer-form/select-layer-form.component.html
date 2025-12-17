@@ -10,7 +10,7 @@
                     <div class="layer-group-items">
                         @for (layerItem of layer.layerGroups[key].group.layers; track trackLayerFn(layerItem)) {
                             <img
-                                [src]="layerItem.img"
+                                [src]="layerItem.img || 'assets/images/placeholder.png'"
                                 [alt]="layer.layerGroups[key].name"
                                 [class.selected]="layerItem.id === getSelectedLayer(key)"
                                 (click)="selectLayer(key, layerItem)"
